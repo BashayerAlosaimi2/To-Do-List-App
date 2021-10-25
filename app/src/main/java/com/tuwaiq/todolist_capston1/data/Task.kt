@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey
 @Parcelize
 data class Task(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int = 0,
     val title: String,
     val description: String,
     val important: Boolean= false,
