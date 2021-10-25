@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+
+    <CheckBox
+        android:id="@+id/check_boc_completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:minHeight="0dp"
+        android:minWidth="0dp"/>
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/check_boc_completed"
+        android:layout_alignBottom="@+id/check_boc_completed"
+        android:layout_marginLeft="7dp"
+        android:layout_toStartOf="@+id/label_piority"
+        android:layout_toEndOf="@+id/check_boc_completed"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:text="test item text"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/label_piority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_priority_high_24"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"/>
+
+
+
+</RelativeLayout>
+
