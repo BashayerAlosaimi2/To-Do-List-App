@@ -9,5 +9,17 @@
         android:id="@+id/taskFragment"
         android:name="com.tuwaiq.todolist_capston1.ui.tasks.TaskFragment"
         android:label="fragment_task"
-        tools:layout="@layout/fragment_task" />
+        tools:layout="@layout/fragment_task" >
+        <action
+            android:id="@+id/action_taskFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.tuwaiq.todolist_capston1.ui.tasks.AddFragment"
+        android:label="AddFragment"
+        tools:layout="@layout/fragment_add_ediet_task"
+        >
+
+    </fragment>
 </navigation>
