@@ -4,25 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Your Task "
+            android:textSize="30dp" />
+
         <EditText
             android:id="@+id/edit_text_task_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Task Title"
-            android:textSize="19dp" />
+            android:layout_marginTop="30dp"
+            android:hint="Enter your Task"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/edit_text_task_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:hint="Task description"
-            android:lines="10" />
+            android:lines="6"
+            android:textSize="20dp"
+            android:textStyle="normal" />
 
         <CheckBox
             android:id="@+id/check_box_important"
@@ -30,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Important Task"
-            android:textSize="15dp"
+            android:textSize="20dp"
 
             />
 
@@ -40,31 +55,45 @@
             android:layout_marginBottom="10dp">
 
             <TextView
-                android:id="@+id/text_view_due_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Due Date: "
-                android:textSize="17dp" />
+                android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/text_view_due_date2"
+                android:id="@+id/tvDueDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:hint="Choose your task due date"
-                android:textSize="17dp" />
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/image_due_date"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_baseline_calendar_today_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
 
         </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/text_view_date_created"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date created: "
-            android:textSize="17dp"
+        <ImageView
+            android:id="@+id/clear_data"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="20dp"
+            android:scrollbarSize="30dp"
 
-            />
+            android:src="@drawable/ic_baseline_delete_24" />
 
     </LinearLayout>
 

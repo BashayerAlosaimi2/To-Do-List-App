@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">To Do List -Capston1</string>
+    <string name="app_name">My To Do List </string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Key_send_data_of_item" />
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
 </resources>

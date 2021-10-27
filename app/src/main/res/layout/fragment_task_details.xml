@@ -29,11 +29,11 @@
 
         <TextView
             android:id="@+id/tvTaskName"
-            android:layout_width="wrap_content"
+            android:layout_width="42dp"
             android:layout_height="wrap_content"
-            android:text="Task 1 "
             android:layout_marginLeft="15dp"
-            android:textSize="17dp"/>
+            android:text="Task 1 "
+            android:textSize="17dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -42,23 +42,23 @@
         android:layout_marginBottom="30dp">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Task Details: "
-        android:textSize="17dp"
-        android:layout_marginLeft="15dp"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task Details: "
+            android:textSize="17dp"
+            android:layout_marginLeft="15dp"
+            />
 
-    <TextView
-android:id="@+id/tvTaskDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Details 2 "
-        android:layout_marginLeft="15dp"
-        android:textSize="17dp"/>
+        <TextView
+            android:id="@+id/tvTaskDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details 2 "
+            android:layout_marginLeft="15dp"
+            android:textSize="17dp"/>
 
-</LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout

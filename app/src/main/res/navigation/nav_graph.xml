@@ -9,17 +9,27 @@
         android:id="@+id/taskFragment"
         android:name="com.tuwaiq.todolist_capston1.ui.tasks.TaskFragment"
         android:label="fragment_task"
-        tools:layout="@layout/fragment_task" >
+        tools:layout="@layout/fragment_task">
         <action
             android:id="@+id/action_taskFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_taskFragment_to_taskDetailsFragment"
+            app:destination="@id/taskDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
         android:name="com.tuwaiq.todolist_capston1.ui.tasks.AddFragment"
         android:label="AddFragment"
-        tools:layout="@layout/fragment_add_ediet_task"
-        >
+        tools:layout="@layout/fragment_add_ediet_task">
 
+        <action
+            android:id="@+id/action_addFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/taskDetailsFragment"
+        android:name="com.tuwaiq.todolist_capston1.ui.tasks.TaskDetailsFragment"
+        android:label="TaskDetailsFragment"
+        tools:layout="@layout/fragment_task_details"/>
 </navigation>

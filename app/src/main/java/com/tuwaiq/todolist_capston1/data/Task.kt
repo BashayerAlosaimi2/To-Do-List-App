@@ -1,6 +1,6 @@
 package com.tuwaiq.todolist_capston1.data
 
-import java.text.DateFormat
+//import java.text.DateFormat
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
@@ -14,10 +14,11 @@ data class Task(
     val taskTitle: String,
     val TaskDetails: String,
     val important: Boolean= false,
-    val due_date: Long,
-    val created_date: Long = System.currentTimeMillis()
+    val due_date: String,
+    val taskCompleted: Boolean = false,
+    val created_date: String// = System.currentTimeMillis()
 
-): Parcelable{
+): Parcelable/*{
     val created_date_formatted: String
         get()= DateFormat.getDateInstance().format(created_date)
 
@@ -25,3 +26,4 @@ data class Task(
         get()= DateFormat.getDateInstance().format(due_date)
 
 }
+*/
