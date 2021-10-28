@@ -1,8 +1,7 @@
 package com.tuwaiq.todolist_capston1.data
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
+import com.tuwaiq.todolist_capston1.model.Task
 
 @Dao
 interface TaskDao {

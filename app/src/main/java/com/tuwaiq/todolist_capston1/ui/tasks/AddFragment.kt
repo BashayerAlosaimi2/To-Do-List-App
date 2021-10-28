@@ -8,15 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.tuwaiq.todolist_capston1.R
-import com.tuwaiq.todolist_capston1.data.Task
-import java.nio.file.Files.delete
+import com.tuwaiq.todolist_capston1.model.Task
+import com.tuwaiq.todolist_capston1.ui.tasks.modelView.taskViewModel
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -35,8 +33,8 @@ class AddFragment : Fragment() {
     private lateinit var clear: ImageView
 
 
-    val current = LocalDateTime.now()
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+    val current = LocalDate.now()
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
     val formatted = current.format(formatter)
 
 
@@ -69,7 +67,7 @@ class AddFragment : Fragment() {
         val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
 
-        imagDate.setOnClickListener {
+        imagDate.setOnClickListener{
             val datePickerDialog =
                 DatePickerDialog(view.context, { view, y, m, d ->
                     date = "$y/${m + 1}/$d"
@@ -106,7 +104,6 @@ class AddFragment : Fragment() {
 
         btnDone.setOnClickListener {
            val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
-
             val task= Task(taskTitle=taskName.text.toString(),
                 TaskDetails= taskDetails.text.toString() ,
             important= isimportant.isChecked,
@@ -115,24 +112,6 @@ class AddFragment : Fragment() {
             mainVM.inserTask(task)
 
             findNavController().navigate(R.id.action_addFragment_to_taskFragment)
-
-
-            /* var info = "Name: ${name.text}\n"
-            info += "\nBirthday: $date\n"
-            info += "\nGender: $genderVal\n"
-            info += "\nPhone: +${countryCode.toString()} ${phone.text}\n "
-*/
-            /*       //Fragment Manager
-            parentFragmentManager.setFragmentResult(
-                getString(R.string.Key_send_data_of_item),
-                bundleOf("data" to info)
-            )
-            parentFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, TaskDetailsFragment())
-                .commit()
         }
-*/
-        }
-
-
     }
 }
