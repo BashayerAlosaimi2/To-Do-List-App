@@ -13,6 +13,7 @@ data class Task(
     val id: Int = 0,
     var taskTitle: String,
     var TaskDetails: String="",
+    var infoAfterDueDatePass:String="",
     var important: Boolean= false,
     var due_date: String="",
     var taskCompleted: Boolean = false,

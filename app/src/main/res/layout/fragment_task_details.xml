@@ -1,94 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/details_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/details_page">
+    android:orientation="vertical">
 
     <TextView
-        android:padding="30dp"
-        android:gravity="center"
         android:id="@+id/tv_title_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:gravity="center"
+        android:padding="30dp"
         android:text="Your Task Details"
+
+        android:textColor="#385E7E"
         android:textSize="25dp"
-        android:textStyle="bold"/>
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tvTaskName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:text="Task name "
+        android:textColor="#074478"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-
-        <TextView
-            android:id="@+id/tvTaskName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="Task 1 "
-            android:textSize="20dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvDueDate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:text="No Due Date"
+        android:textSize="20dp" />
 
-
-
-        <TextView
-            android:id="@+id/tvTaskDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Details 2 "
-            android:layout_marginLeft="15dp"
-            android:textSize="20dp"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvTaskDetails"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:text="No details "
+        android:textSize="20dp" />
 
 
-
-        <TextView
-            android:id="@+id/tvDueDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Due Date 1 "
-            android:layout_marginLeft="15dp"
-            android:textSize="20dp"/>
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvCreationDate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:text="creation Date 1 "
+        android:textSize="20dp" />
 
-
-
-        <TextView
-            android:id="@+id/tvCreationDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="creation Date 1 "
-            android:layout_marginLeft="15dp"
-            android:textSize="20dp"/>
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/updateButton"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-android:layout_gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/averia_sans_libre_light"
+
         android:text="Update" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:layout_gravity="center"
+        android:text="Delete" />
 
 
 </LinearLayout>

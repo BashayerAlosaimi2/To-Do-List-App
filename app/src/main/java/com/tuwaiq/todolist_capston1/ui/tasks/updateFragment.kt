@@ -7,10 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -31,23 +29,16 @@ class updateFragment : Fragment() {
 
     private val args by navArgs<updateFragmentArgs>()
 
-
     private lateinit var taskName: EditText
     private lateinit var taskDetails: EditText
     private lateinit var moreDetails: EditText
     private lateinit var dueDate: TextView
     private lateinit var imagDate: ImageView
     private lateinit var isimportant: CheckBox
-
-    //private lateinit var creationDate: TextView
     private lateinit var btnDone: FloatingActionButton
     private lateinit var date: String
-    private lateinit var clear: ImageView
+    private lateinit var clear: Button
 
-
-    val current = LocalDateTime.now()
-    val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
-    val formatted = current.format(formatter)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +46,6 @@ class updateFragment : Fragment() {
     ): View { // inflater layout for this fragment
         return inflater.inflate(R.layout.fragment_update, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,91 +60,95 @@ class updateFragment : Fragment() {
         btnDone = view.findViewById(R.id.fab_save_task_up)
         clear = view.findViewById(R.id.clear_data_up)
 
-/*
+
         val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
-        val formatted = current.format(formatter)*/
-
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formatted = current.format(formatter)
         val nowDate = formatted
-        val dueDate2 = dueDate.text.toString()
 
-        if (nowDate<dueDate2){
-            taskName.isEnabled=false
-            imagDate.isEnabled=false
-            isimportant.isEnabled=false
-           // dueDate.is=false
-
-        }
-
+        val local_date = LocalDate.parse(nowDate, DateTimeFormatter.ISO_DATE)
+        val due_Date = LocalDate.parse(nowDate, DateTimeFormatter.ISO_DATE)
 
         view.et_update_title.setText(args.curruntTaskForUpdate.taskTitle)
         view.et_update_description.setText(args.curruntTaskForUpdate.TaskDetails)
         view.tv_update_DueDate.setText(args.curruntTaskForUpdate.due_date)
+        view.update_check_box_important.setText(args.curruntTaskForUpdate.created_date)
 
         if (args.curruntTaskForUpdate.important) {
             view.update_check_box_important.isChecked = true
-        } else {
-            view.update_check_box_important.isChecked = false
         }
-        view.update_check_box_important.setText(args.curruntTaskForUpdate.created_date)
+
+        val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
 
         btnDone.setOnClickListener {
-            val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
+            if (taskName.text.isNotEmpty()) {
+                args.curruntTaskForUpdate.taskTitle = taskName.text.toString()
+                args.curruntTaskForUpdate.TaskDetails = taskDetails.text.toString()
+                args.curruntTaskForUpdate.infoAfterDueDatePass = moreDetails.text.toString()
+                args.curruntTaskForUpdate.important = isimportant.isChecked
+                args.curruntTaskForUpdate.due_date = dueDate.text.toString()
+                args.curruntTaskForUpdate.created_date = formatted
 
-            args.curruntTaskForUpdate.taskTitle = taskName.text.toString()
-            args.curruntTaskForUpdate.TaskDetails= taskDetails.text.toString()
-            args.curruntTaskForUpdate.important=isimportant.isChecked
-            args.curruntTaskForUpdate.due_date=dueDate.text.toString()
-            args.curruntTaskForUpdate.created_date = formatted
+                mainVM.update(args.curruntTaskForUpdate)
 
-            mainVM.update(args.curruntTaskForUpdate)
+                findNavController().navigate(R.id.action_updateFragment_to_taskFragment)
 
-            findNavController().navigate(R.id.action_updateFragment_to_taskFragment)
-
-
+            } else {
+                Toast.makeText(context, "Please enter the task", android.widget.Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
+        if (dueDate.text.isNotEmpty()) {
+            if (due_Date.isBefore(local_date)) {
 
+                taskName.isEnabled = false
+                imagDate.isEnabled = false
+                isimportant.isEnabled = false
+                Toast.makeText(context, "Due date is past, you can't change", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
 
         //============
-            //create object of Calendar
-            val calendar = Calendar.getInstance()
-            // add day of month
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-            val month = calendar.get(Calendar.MONTH)
-            val year = calendar.get(Calendar.YEAR)
-            imagDate.setOnClickListener {
-                val datePickerDialog =
-                    DatePickerDialog(view.context, { view, y, m, d ->
-                        date = "$y/${m + 1}/$d"
+        //create object of Calendar
+        val calendar = Calendar.getInstance()
+        // add day of month
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val month = calendar.get(Calendar.MONTH)
+        val year = calendar.get(Calendar.YEAR)
+        imagDate.setOnClickListener {
+            val datePickerDialog =
+                DatePickerDialog(view.context, { view, y, m, d ->
+                    date = "$y-${m + 1}-$d"
 
-                        dueDate.setText(date)
+                    dueDate.setText(date)
 
-                    }, year, month, day)
-                datePickerDialog.datePicker.minDate = calendar.timeInMillis
-                datePickerDialog.show()
-
-            }
-            clear.setOnClickListener {
-                val alert = AlertDialog.Builder(view.context)
-                alert.setTitle("Reset")
-                // alert.setIcon(R.drawable.alert)
-                alert.setMessage("Are you sure you want to clear all entries?")
-                alert.setPositiveButton(R.string.yes) { dialog, which ->
-                    taskName.text = null
-                    taskDetails.text = null
-                    dueDate.text = null
-                    isimportant.isChecked = false
-
-                }
-                alert.setNegativeButton(R.string.no) { dialog, which ->
-                    dialog.cancel()
-                }
-                alert.setNeutralButton(R.string.cancel) { dialog, which ->
-                    dialog.cancel()
-                }
-                alert.show()
-            }
-
+                }, year, month, day)
+            datePickerDialog.datePicker.minDate = calendar.timeInMillis
+            datePickerDialog.show()
 
         }
+        clear.setOnClickListener {
+            val alert = AlertDialog.Builder(view.context)
+            alert.setTitle("Reset")
+            // alert.setIcon(R.drawable.alert)
+            alert.setMessage("Are you sure you want to clear all entries?")
+            alert.setPositiveButton(R.string.yes) { dialog, which ->
+                taskName.text = null
+                taskDetails.text = null
+                dueDate.text = null
+                isimportant.isChecked = false
+
+            }
+            alert.setNegativeButton(R.string.no) { dialog, which ->
+                dialog.cancel()
+            }
+            alert.setNeutralButton(R.string.cancel) { dialog, which ->
+                dialog.cancel()
+            }
+            alert.show()
+        }
+
+
     }
+}

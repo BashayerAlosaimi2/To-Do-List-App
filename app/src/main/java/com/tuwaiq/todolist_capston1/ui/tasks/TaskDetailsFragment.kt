@@ -18,7 +18,8 @@ import kotlinx.android.synthetic.main.fragment_task_details.view.*
 class TaskDetailsFragment : Fragment() {
 
     private lateinit var viewModel: taskViewModel
-private lateinit var updateBtn: Button
+    private lateinit var updateBtn: Button
+    private lateinit var deleteBtn: Button
     private val args by navArgs<TaskDetailsFragmentArgs>()
 
 
@@ -38,15 +39,22 @@ private lateinit var updateBtn: Button
         view.tvDueDate.setText("Due Date: ${args.curruntTaskKey.due_date}")
         view.tvCreationDate.setText("Creation Date: ${args.curruntTaskKey.created_date}")
 
-      val task=args.curruntTaskKey
-      updateBtn= view.findViewById(R.id.updateButton)
+        updateBtn = view.findViewById(R.id.updateButton)
+        deleteBtn = view.findViewById(R.id.deleteButton)
+        //val taskArg = args.curruntTaskKey
 
-        updateBtn.setOnClickListener{
-            val action = TaskDetailsFragmentDirections.actionTaskDetailsFragmentToUpdateFragment(task)
+        updateBtn.setOnClickListener {
+            val action =
+                TaskDetailsFragmentDirections.actionTaskDetailsFragmentToUpdateFragment(args.curruntTaskKey)
 
             findNavController().navigate(action)
         }
 
+        deleteBtn.setOnClickListener {
 
+            viewModel.delete(args.curruntTaskKey)
+            findNavController().popBackStack()
+
+        }
     }
 }

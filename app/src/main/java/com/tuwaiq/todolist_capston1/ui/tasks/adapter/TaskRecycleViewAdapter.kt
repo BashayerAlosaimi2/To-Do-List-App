@@ -47,9 +47,7 @@ class TaskRecycleViewAdapter(
 
         if (task.important) {
             holder.imagImportant.isVisible = true
-        }
-        else holder.imagImportant.isVisible = false
-
+        } else holder.imagImportant.isVisible = false
 
 
         // comparing the date
@@ -59,26 +57,23 @@ class TaskRecycleViewAdapter(
 
         val creationDate = formatted
 
-       /* if (task.due_date >= creationDate) {
-            holder.checkB.isEnabled = true
+        /* if (task.due_date >= creationDate) {
+             holder.checkB.isEnabled = true
 
 
-        } else {
-            holder.checkB.isEnabled = false
+         } else {
+             holder.checkB.isEnabled = false
 
-        }*/
+         }*/
 
         val cardV = holder.itemView.findViewById<CardView>(R.id.itemID)
         val newcolor = holder.itemView.resources.getColor(R.color.green)
         val oldcolor = holder.itemView.resources.getColor(R.color.white)
-       //cardV.setCardBackgroundColor(newcolor)
 
-// change value in database
-        //holder.checkB.isChecked
         holder.checkB.setOnCheckedChangeListener { _, ischeeck ->
             if (ischeeck) {
                 task.taskCompleted = true
-                cardV.setCardBackgroundColor(newcolor)
+               cardV.setCardBackgroundColor(newcolor)
                 viewModel.update(task)
             } else {
                 task.taskCompleted = false
@@ -88,6 +83,18 @@ class TaskRecycleViewAdapter(
             }
         }
         task.taskCompleted = holder.checkB.isChecked
+
+        if (task.taskCompleted) {
+            cardV.setCardBackgroundColor(newcolor)
+        } else {
+            cardV.setCardBackgroundColor(oldcolor)
+        }
+
+
+
+
+
+
 
 
         holder.itemView.setOnClickListener { view ->

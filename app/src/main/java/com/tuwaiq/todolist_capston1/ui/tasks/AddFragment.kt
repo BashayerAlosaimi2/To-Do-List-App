@@ -20,17 +20,17 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 
-
 class AddFragment : Fragment() {
     private lateinit var taskName: EditText
     private lateinit var taskDetails: EditText
     private lateinit var dueDate: TextView
     private lateinit var imagDate: ImageView
     private lateinit var isimportant: CheckBox
+
     //private lateinit var creationDate: TextView
     private lateinit var btnDone: FloatingActionButton
     private lateinit var date: String
-    private lateinit var clear: ImageView
+    private lateinit var clear: Button
 
 
     val current = LocalDate.now()
@@ -50,13 +50,15 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
+
         taskName = view.findViewById(R.id.edit_text_task_title)
         taskDetails = view.findViewById(R.id.edit_text_task_description)
         imagDate = view.findViewById(R.id.image_due_date)
 
         isimportant = view.findViewById(R.id.check_box_important)
         dueDate = view.findViewById(R.id.tvDueDate)
-      //  creationDate = view.findViewById(R.id.tvCreationDate)
+        //  creationDate = view.findViewById(R.id.tvCreationDate)
         btnDone = view.findViewById(R.id.fab_save_task)
         clear = view.findViewById(R.id.clear_data)
 
@@ -67,10 +69,10 @@ class AddFragment : Fragment() {
         val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
 
-        imagDate.setOnClickListener{
+        imagDate.setOnClickListener {
             val datePickerDialog =
-                DatePickerDialog(view.context, { view, y, m, d ->
-                    date = "$y/${m + 1}/$d"
+                DatePickerDialog(view.context, { _, y, m, d ->
+                    date = "$y-${m + 1}-$d"
 
                     dueDate.setText(date)
 
@@ -101,17 +103,22 @@ class AddFragment : Fragment() {
         }
 
         //5. Send Information
-
         btnDone.setOnClickListener {
-           val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
-            val task= Task(taskTitle=taskName.text.toString(),
-                TaskDetails= taskDetails.text.toString() ,
-            important= isimportant.isChecked,
-            due_date= dueDate.text.toString(),
-            created_date= formatted )
-            mainVM.inserTask(task)
-
-            findNavController().navigate(R.id.action_addFragment_to_taskFragment)
+            if (taskName.text.isNotEmpty()) {
+                val task = Task(
+                    taskTitle = taskName.text.toString(),
+                    TaskDetails = taskDetails.text.toString(),
+                    important = isimportant.isChecked,
+                    due_date = dueDate.text.toString(),
+                    created_date = formatted
+                )
+                mainVM.inserTask(task)
+                findNavController().popBackStack()
+                // findNavController().navigate(R.id.action_addFragment_to_taskFragment)
+            } else {
+                Toast.makeText(context, "Please enter the task", android.widget.Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 }
