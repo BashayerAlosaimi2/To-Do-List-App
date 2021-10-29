@@ -44,11 +44,11 @@
                 android:layout_toStartOf="@+id/label_piority"
                 android:layout_toEndOf="@+id/check_boc_completed"
                 android:ellipsize="end"
-                android:fontFamily="@font/boogaloo"
-                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:fontFamily="@font/averia_sans_libre_light"
+                android:textColor="#385E7E"                android:gravity="center_vertical"
                 android:maxLines="1"
                 android:text="Task name"
-                android:textColor="@color/black"
                 android:textSize="20dp" />
 
         <!--    <TextView

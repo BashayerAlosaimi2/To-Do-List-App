@@ -40,19 +40,14 @@ class TaskRecycleViewAdapter(
         holder.tv_TaskName.text = "${task.taskTitle}"
         holder.tv_DueDate.text = "${task.due_date}"
         holder.checkB.isChecked = task.taskCompleted
-        //  holder.tv_CreationDate.text = "${task.created_date}"
-        /*if (task.taskCompleted == true) {
-            holder.checkB.isChecked = true
-        }*/
 
-        if (task.important) {
+        if (task.important)
             holder.imagImportant.isVisible = true
-        } else holder.imagImportant.isVisible = false
 
 
         // comparing the date
         val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         val formatted = current.format(formatter)
 
         val creationDate = formatted
@@ -67,11 +62,12 @@ class TaskRecycleViewAdapter(
          }*/
 
         val cardV = holder.itemView.findViewById<CardView>(R.id.itemID)
-        val newcolor = holder.itemView.resources.getColor(R.color.green)
+        val newcolor = holder.itemView.resources.getColor(R.color.green_light)
         val oldcolor = holder.itemView.resources.getColor(R.color.white)
 
         holder.checkB.setOnCheckedChangeListener { _, ischeeck ->
             if (ischeeck) {
+
                 task.taskCompleted = true
                cardV.setCardBackgroundColor(newcolor)
                 viewModel.update(task)
@@ -85,17 +81,11 @@ class TaskRecycleViewAdapter(
         task.taskCompleted = holder.checkB.isChecked
 
         if (task.taskCompleted) {
+
             cardV.setCardBackgroundColor(newcolor)
         } else {
             cardV.setCardBackgroundColor(oldcolor)
         }
-
-
-
-
-
-
-
 
         holder.itemView.setOnClickListener { view ->
             val action = TaskFragmentDirections.actionTaskFragmentToTaskDetailsFragment(task)
@@ -117,7 +107,7 @@ class TaskRecycleViewAdapter(
 
     class CustomAdapter {
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-            View.OnClickListener {
+            View.OnClickListener{
             // item view here is from the on create function where we created in the view
             val tv_TaskName: TextView = itemView.findViewById(R.id.text_view_name)
             val tv_DueDate: TextView = itemView.findViewById(R.id.tvDueDateItem)

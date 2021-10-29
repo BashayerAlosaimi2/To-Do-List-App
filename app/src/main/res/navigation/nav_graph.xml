@@ -21,7 +21,7 @@
         android:id="@+id/addFragment"
         android:name="com.tuwaiq.todolist_capston1.ui.tasks.AddFragment"
         android:label="AddFragment"
-        tools:layout="@layout/fragment_add_ediet_task">
+        tools:layout="@layout/fragment_add">
 
         <action
             android:id="@+id/action_addFragment_to_taskFragment"

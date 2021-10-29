@@ -76,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="Due Date: "
                 android:textSize="20dp"
+                android:layout_marginTop="6dp"
                 android:fontFamily="@font/averia_sans_libre_light"
                 />
 
@@ -85,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:hint="YYY-MM-DD"
+                android:layout_marginTop="6dp"
                 android:fontFamily="@font/averia_sans_libre_light"
                 android:gravity="left"
                 android:textSize="20dp" />

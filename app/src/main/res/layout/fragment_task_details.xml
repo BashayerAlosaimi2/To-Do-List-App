@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/averia_sans_libre_light"
         android:gravity="center"
-        android:padding="30dp"
+        android:padding="40dp"
         android:text="Your Task Details"
 
         android:textColor="#385E7E"
@@ -24,11 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
+        android:layout_gravity=""
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/averia_sans_libre_light"
         android:text="Task name "
         android:textColor="#074478"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <TextView
@@ -39,7 +40,7 @@
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/averia_sans_libre_light"
         android:text="No Due Date"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/tvTaskDetails"
@@ -49,7 +50,7 @@
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/averia_sans_libre_light"
         android:text="No details "
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
 
     <TextView
@@ -59,8 +60,8 @@
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/averia_sans_libre_light"
-        android:text="creation Date 1 "
-        android:textSize="20dp" />
+        android:text="creation Date"
+        android:textSize="25dp" />
 
 
     <Button
@@ -70,6 +71,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="6dp"
+        android:textSize="17dp"
         android:fontFamily="@font/averia_sans_libre_light"
 
         android:text="Update" />
@@ -80,6 +82,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/averia_sans_libre_light"
         android:layout_gravity="center"
+        android:textSize="17dp"
         android:text="Delete" />
 
 

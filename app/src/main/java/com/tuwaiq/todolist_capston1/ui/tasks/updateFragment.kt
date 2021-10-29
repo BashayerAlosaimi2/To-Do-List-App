@@ -61,18 +61,11 @@ class updateFragment : Fragment() {
         clear = view.findViewById(R.id.clear_data_up)
 
 
-        val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        val formatted = current.format(formatter)
-        val nowDate = formatted
 
-        val local_date = LocalDate.parse(nowDate, DateTimeFormatter.ISO_DATE)
-        val due_Date = LocalDate.parse(nowDate, DateTimeFormatter.ISO_DATE)
 
         view.et_update_title.setText(args.curruntTaskForUpdate.taskTitle)
         view.et_update_description.setText(args.curruntTaskForUpdate.TaskDetails)
         view.tv_update_DueDate.setText(args.curruntTaskForUpdate.due_date)
-        view.update_check_box_important.setText(args.curruntTaskForUpdate.created_date)
 
         if (args.curruntTaskForUpdate.important) {
             view.update_check_box_important.isChecked = true
@@ -80,6 +73,23 @@ class updateFragment : Fragment() {
 
         val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
 
+        val current = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+       val currentDate = current.format(formatter)
+        val dueDateTime = LocalDate.parse(dueDate.text,formatter)
+
+
+        if (dueDate.text.isNotEmpty()) {
+          if (dueDateTime.isBefore(LocalDate.now())) {
+
+              taskName.isEnabled = false
+              taskDetails.isEnabled = false
+              imagDate.isEnabled = false
+              isimportant.isEnabled = false
+              Toast.makeText(context, "Due date is past", Toast.LENGTH_SHORT)
+                  .show()
+          }
+      }
         btnDone.setOnClickListener {
             if (taskName.text.isNotEmpty()) {
                 args.curruntTaskForUpdate.taskTitle = taskName.text.toString()
@@ -87,7 +97,7 @@ class updateFragment : Fragment() {
                 args.curruntTaskForUpdate.infoAfterDueDatePass = moreDetails.text.toString()
                 args.curruntTaskForUpdate.important = isimportant.isChecked
                 args.curruntTaskForUpdate.due_date = dueDate.text.toString()
-                args.curruntTaskForUpdate.created_date = formatted
+                args.curruntTaskForUpdate.created_date = currentDate
 
                 mainVM.update(args.curruntTaskForUpdate)
 
@@ -95,16 +105,6 @@ class updateFragment : Fragment() {
 
             } else {
                 Toast.makeText(context, "Please enter the task", android.widget.Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-        if (dueDate.text.isNotEmpty()) {
-            if (due_Date.isBefore(local_date)) {
-
-                taskName.isEnabled = false
-                imagDate.isEnabled = false
-                isimportant.isEnabled = false
-                Toast.makeText(context, "Due date is past, you can't change", Toast.LENGTH_SHORT)
                     .show()
             }
         }

@@ -15,7 +15,6 @@ import com.tuwaiq.todolist_capston1.R
 import com.tuwaiq.todolist_capston1.model.Task
 import com.tuwaiq.todolist_capston1.ui.tasks.modelView.taskViewModel
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -43,7 +42,7 @@ class AddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_ediet_task, container, false)
+        return inflater.inflate(R.layout.fragment_add, container, false)
     }
 
 
@@ -112,6 +111,8 @@ class AddFragment : Fragment() {
                     due_date = dueDate.text.toString(),
                     created_date = formatted
                 )
+                Toast.makeText(context, "Task is added successfully", android.widget.Toast.LENGTH_SHORT)
+                    .show()
                 mainVM.inserTask(task)
                 findNavController().popBackStack()
                 // findNavController().navigate(R.id.action_addFragment_to_taskFragment)
