@@ -22,15 +22,9 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class TaskRecycleViewAdapter(
-    private var taskList: List<Task>,
-    val viewModel: taskViewModel,
-    private val isLandscape: Boolean
-) : RecyclerView.Adapter<TaskRecycleViewAdapter.CustomAdapter.ViewHolder>() {
-    //   private val repo = TaskRepo(this)
+class TaskRecycleViewAdapter(private var taskList: List<Task>, val viewModel: taskViewModel, private val isLandscape: Boolean): RecyclerView.Adapter<TaskRecycleViewAdapter.CustomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
-        //parent is the recycle layout which will get injected with views (items)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false)
         return CustomAdapter.ViewHolder(view)
     }
@@ -41,51 +35,38 @@ class TaskRecycleViewAdapter(
         holder.tv_DueDate.text = "${task.due_date}"
         holder.checkB.isChecked = task.taskCompleted
 
-        if (task.important)
-            holder.imagImportant.isVisible = true
-
 
         // comparing the date
         val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formatter = DateTimeFormatter.ofPattern("yyyy-M-d")
         val formatted = current.format(formatter)
 
-        val creationDate = formatted
-
-        /* if (task.due_date >= creationDate) {
-             holder.checkB.isEnabled = true
-
-
-         } else {
-             holder.checkB.isEnabled = false
-
-         }*/
-
         val cardV = holder.itemView.findViewById<CardView>(R.id.itemID)
-        val newcolor = holder.itemView.resources.getColor(R.color.green_light)
+        val newcolor = holder.itemView.resources.getColor(R.color.green4)
         val oldcolor = holder.itemView.resources.getColor(R.color.white)
 
         holder.checkB.setOnCheckedChangeListener { _, ischeeck ->
             if (ischeeck) {
-
                 task.taskCompleted = true
                cardV.setCardBackgroundColor(newcolor)
                 viewModel.update(task)
             } else {
                 task.taskCompleted = false
                 cardV.setCardBackgroundColor(oldcolor)
-
                 viewModel.update(task)
             }
         }
         task.taskCompleted = holder.checkB.isChecked
 
         if (task.taskCompleted) {
-
             cardV.setCardBackgroundColor(newcolor)
         } else {
             cardV.setCardBackgroundColor(oldcolor)
         }
+        if (task.important)
+            holder.imagImportant.isVisible = true
+        else holder.imagImportant.isVisible = false
+
 
         holder.itemView.setOnClickListener { view ->
             val action = TaskFragmentDirections.actionTaskFragmentToTaskDetailsFragment(task)
@@ -104,7 +85,6 @@ class TaskRecycleViewAdapter(
 
     }*/
 
-
     class CustomAdapter {
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
             View.OnClickListener{
@@ -118,19 +98,11 @@ class TaskRecycleViewAdapter(
                 itemView.setOnClickListener(this)
 
             }
-
             override fun onClick(view: View?) {
                 Toast.makeText(itemView.context, "${tv_TaskName.text} cliced", Toast.LENGTH_SHORT)
                     .show()
             }
         }
-    }
-
-    fun convertDateToString(Date: LocalDateTime): String {
-        val localDate: LocalDateTime = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm")
-        val formattedCreationDate: String = localDate.format(formatter)
-        return formattedCreationDate
     }
 }
 

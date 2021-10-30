@@ -4,26 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity"
-
-    >
+    tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/itemID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_margin="1dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="0dp"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:cardMaxElevation="6dp"
+        app:cardCornerRadius="9dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="89dp"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp">
 
 
             <CheckBox
@@ -44,30 +48,31 @@
                 android:layout_toStartOf="@+id/label_piority"
                 android:layout_toEndOf="@+id/check_boc_completed"
                 android:ellipsize="end"
-                android:textStyle="bold"
                 android:fontFamily="@font/averia_sans_libre_light"
-                android:textColor="#385E7E"                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:text="Task name"
-                android:textSize="20dp" />
-
-        <!--    <TextView
-                android:id="@+id/tv_dueDate"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/check_boc_completed"
-                android:layout_marginStart="9dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginBottom="5dp"
-
-                android:layout_toEndOf="@+id/check_boc_completed"
-                android:ellipsize="end"
-                android:fontFamily="@font/handlee"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                android:text="due date:"
-                android:textColor="@color/black"
-                android:textSize="15dp" />-->
+                android:text="Task name"
+                android:textColor="#385E7E"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <!--    <TextView
+                    android:id="@+id/tv_dueDate"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/check_boc_completed"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginBottom="5dp"
+
+                    android:layout_toEndOf="@+id/check_boc_completed"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/handlee"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="due date:"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />-->
 
             <TextView
                 android:id="@+id/tvDueDateItem"

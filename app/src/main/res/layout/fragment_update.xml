@@ -1,137 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/note1">
+
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Your Task "
+        android:textSize="35dp"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:textColor="#4B716D"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/et_update_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Enter your Task"
+        android:textColor="#385E7E"
+        android:textStyle="bold"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/et_update_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Task description"
+        android:textColor="#534750"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:lines="4"
+        android:textSize="20dp"
+        android:textStyle="normal" />
+    <EditText
+        android:id="@+id/et_more_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:layout_marginTop="10dp"
+        android:hint="Completion note"
+        android:lines="2"
+        android:textSize="20dp"
+        android:textStyle="normal" />
+    <CheckBox
+        android:id="@+id/update_check_box_important"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Important Task"
+        android:textColor="#385E7E"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/averia_sans_libre_light"
+        android:textSize="20dp"
+
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/averia_sans_libre_light">
 
         <TextView
-            android:layout_width="match_parent"
-            android:gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Update Your Task "
+            android:text="Due Date: "
             android:fontFamily="@font/averia_sans_libre_light"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
             android:textColor="#385E7E"
-            android:textStyle="bold"
-            android:textSize="30dp" />
+            android:textStyle="bold"/>
 
-        <EditText
-            android:id="@+id/et_update_title"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_update_DueDate"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:hint="Enter your Task"
+            android:layout_marginLeft="5dp"
+            android:hint="YYYY-MM-DD"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/averia_sans_libre_light"
             android:textSize="20dp" />
 
-        <EditText
-            android:id="@+id/et_update_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Task description"
-            android:fontFamily="@font/averia_sans_libre_light"
-            android:lines="3"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-        <EditText
-            android:id="@+id/et_more_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/averia_sans_libre_light"
-            android:layout_marginTop="10dp"
-            android:hint="Completion note"
-            android:lines="2"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-
-
-        <CheckBox
-            android:id="@+id/update_check_box_important"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Important Task"
-            android:fontFamily="@font/averia_sans_libre_light"
-            android:textSize="20dp"
-
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Due Date: "
-                android:textSize="20dp"
-                android:layout_marginTop="6dp"
-                android:fontFamily="@font/averia_sans_libre_light"
-                />
-
-            <TextView
-                android:id="@+id/tv_update_DueDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:hint="YYY-MM-DD"
-                android:layout_marginTop="6dp"
-                android:fontFamily="@font/averia_sans_libre_light"
-                android:gravity="left"
-                android:textSize="20dp" />
-
-            <ImageView
-                android:id="@+id/image_due_date_up"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/averia_sans_libre_light"
-                android:src="@drawable/ic_baseline_calendar_today_24" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginBottom="10dp">
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/clear_data_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Clear" />
-       <!-- <ImageView
-            android:id="@+id/clear_data_up??"
+        <ImageView
+            android:id="@+id/image_due_date_up"
             android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="fitXY"
-            android:layout_marginLeft="20dp"
-            android:scrollbarSize="30dp"
-
-            android:src="@drawable/ic_baseline_delete_24" />-->
+            android:layout_height="35dp"
+            android:layout_marginLeft="130dp"
+            android:src="@drawable/ic_baseline_calendar_today_24" />
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_save_task_up"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/clear_data_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:src="@drawable/ic_baseline_check_24"
-        app:maxImageSize="40dp" />
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="Clear" />
+    <!--
+            <ImageView
+                android:id="@+id/clear_data??"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="20dp"
+                android:scrollbarSize="30dp"-->
+
+    android:src="@drawable/ic_baseline_delete_24" />
+
+</LinearLayout>
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab_save_task_up"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:src="@drawable/ic_baseline_check_24"
+    app:maxImageSize="40dp"
+    android:layout_margin="14dp"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

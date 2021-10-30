@@ -39,7 +39,6 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
         recyclerView.layoutManager = LinearLayoutManager(this.context)
 
 
-
         viewModel.getTasks().observe(viewLifecycleOwner, Observer {
             val isLandscape = view.findViewById<FrameLayout>(R.id.flDetails) != null
             recyclerView.adapter = TaskRecycleViewAdapter(it, viewModel, isLandscape)

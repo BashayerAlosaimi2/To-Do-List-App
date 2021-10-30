@@ -60,36 +60,34 @@ class updateFragment : Fragment() {
         btnDone = view.findViewById(R.id.fab_save_task_up)
         clear = view.findViewById(R.id.clear_data_up)
 
-
-
+        val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
 
         view.et_update_title.setText(args.curruntTaskForUpdate.taskTitle)
         view.et_update_description.setText(args.curruntTaskForUpdate.TaskDetails)
         view.tv_update_DueDate.setText(args.curruntTaskForUpdate.due_date)
 
-        if (args.curruntTaskForUpdate.important) {
+        if (args.curruntTaskForUpdate.important)
             view.update_check_box_important.isChecked = true
-        }
+        else
+            view.update_check_box_important.isChecked = false
 
-        val mainVM = ViewModelProvider(this).get(taskViewModel::class.java)
 
         val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-       val currentDate = current.format(formatter)
-        val dueDateTime = LocalDate.parse(dueDate.text,formatter)
+        val formatter = DateTimeFormatter.ofPattern("yyyy-M-d")
+        val currentDate = current.format(formatter)
 
 
         if (dueDate.text.isNotEmpty()) {
-          if (dueDateTime.isBefore(LocalDate.now())) {
-
-              taskName.isEnabled = false
-              taskDetails.isEnabled = false
-              imagDate.isEnabled = false
-              isimportant.isEnabled = false
-              Toast.makeText(context, "Due date is past", Toast.LENGTH_SHORT)
-                  .show()
-          }
-      }
+            val dueDateTime = LocalDate.parse(dueDate.text, formatter)
+            if (dueDateTime.isBefore(LocalDate.now())) {
+                taskName.isEnabled = false
+                taskDetails.isEnabled = false
+                imagDate.isEnabled = false
+                isimportant.isEnabled = false
+                Toast.makeText(context, "Due date is past", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
         btnDone.setOnClickListener {
             if (taskName.text.isNotEmpty()) {
                 args.curruntTaskForUpdate.taskTitle = taskName.text.toString()
@@ -100,11 +98,12 @@ class updateFragment : Fragment() {
                 args.curruntTaskForUpdate.created_date = currentDate
 
                 mainVM.update(args.curruntTaskForUpdate)
-
+                Toast.makeText(context, "Task updated successfully", Toast.LENGTH_SHORT)
+                    .show()
                 findNavController().navigate(R.id.action_updateFragment_to_taskFragment)
 
             } else {
-                Toast.makeText(context, "Please enter the task", android.widget.Toast.LENGTH_SHORT)
+                Toast.makeText(context, "Please enter the task", Toast.LENGTH_SHORT)
                     .show()
             }
         }

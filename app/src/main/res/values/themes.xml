@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.ToDoListCapston1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#1CAFF6</item>
-        <item name="colorPrimaryVariant">#1E5485</item>
+        <item name="colorPrimary">#947A86</item>
+        <item name="colorPrimaryVariant">#4D6478</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#43CFF1</item>
+        <item name="colorSecondary">#947A86</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->

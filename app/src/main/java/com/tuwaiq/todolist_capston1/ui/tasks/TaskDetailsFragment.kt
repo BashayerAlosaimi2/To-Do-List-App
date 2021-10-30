@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -34,14 +35,14 @@ class TaskDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(taskViewModel::class.java)
 
-        view.tvTaskName.setText("Task: ${args.curruntTaskKey.taskTitle}")
-        view.tvTaskDetails.setText("Details: ${args.curruntTaskKey.TaskDetails}")
+        view.tvTaskName.setText("${args.curruntTaskKey.taskTitle}")
+        view.tvTaskDetails.setText("${args.curruntTaskKey.TaskDetails}")
+        view.tvTaskcomplation.setText("${args.curruntTaskKey.infoAfterDueDatePass}")
         view.tvDueDate.setText("Due Date: ${args.curruntTaskKey.due_date}")
         view.tvCreationDate.setText("Creation Date: ${args.curruntTaskKey.created_date}")
 
         updateBtn = view.findViewById(R.id.updateButton)
         deleteBtn = view.findViewById(R.id.deleteButton)
-        //val taskArg = args.curruntTaskKey
 
         updateBtn.setOnClickListener {
             val action =
@@ -53,6 +54,8 @@ class TaskDetailsFragment : Fragment() {
         deleteBtn.setOnClickListener {
 
             viewModel.delete(args.curruntTaskKey)
+            Toast.makeText(context, "Task deleted successfully", Toast.LENGTH_SHORT)
+                .show()
             findNavController().popBackStack()
 
         }
