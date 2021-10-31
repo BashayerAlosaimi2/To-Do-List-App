@@ -1,4 +1,4 @@
-package com.tuwaiq.todolist_capston1.data
+package com.tuwaiq.todolist_capston1.model
 
 //import java.text.DateFormat
 import android.os.Parcelable
@@ -11,14 +11,17 @@ import androidx.room.PrimaryKey
 data class Task(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val taskTitle: String,
-    val TaskDetails: String,
-    val important: Boolean= false,
-    val due_date: String,
-    val taskCompleted: Boolean = false,
-    val created_date: String// = System.currentTimeMillis()
+    var taskTitle: String,
+    var TaskDetails: String="",
+    var infoAfterDueDatePass:String="",
+    var important: Boolean= false,
+    var due_date: String="",
+    var taskCompleted: Boolean = false,
+    var created_date: String  // = System.currentTimeMillis()
 
-): Parcelable/*{
+): Parcelable
+
+/*{
     val created_date_formatted: String
         get()= DateFormat.getDateInstance().format(created_date)
 

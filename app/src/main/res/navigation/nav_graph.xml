@@ -21,7 +21,7 @@
         android:id="@+id/addFragment"
         android:name="com.tuwaiq.todolist_capston1.ui.tasks.AddFragment"
         android:label="AddFragment"
-        tools:layout="@layout/fragment_add_ediet_task">
+        tools:layout="@layout/fragment_add">
 
         <action
             android:id="@+id/action_addFragment_to_taskFragment"
@@ -31,5 +31,24 @@
         android:id="@+id/taskDetailsFragment"
         android:name="com.tuwaiq.todolist_capston1.ui.tasks.TaskDetailsFragment"
         android:label="TaskDetailsFragment"
-        tools:layout="@layout/fragment_task_details"/>
+        tools:layout="@layout/fragment_task_details">
+        <argument
+            android:name="currunt_task_key"
+            app:argType="com.tuwaiq.todolist_capston1.model.Task" />
+        <action
+            android:id="@+id/action_taskDetailsFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.tuwaiq.todolist_capston1.ui.tasks.updateFragment"
+        tools:layout="@layout/fragment_update"
+        android:label="updateFragment" >
+        <action
+            android:id="@+id/action_updateFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+        <argument
+            android:name="currunt_task_for_Update"
+            app:argType="com.tuwaiq.todolist_capston1.model.Task" />
+    </fragment>
 </navigation>
