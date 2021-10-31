@@ -3,7 +3,7 @@
     android:id="@+id/details_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/note1"
+    android:background="@drawable/picgood"
     android:orientation="vertical"
 
     >
@@ -17,7 +17,7 @@
         android:gravity="center"
         android:padding="40dp"
         android:text="Your Task Details"
-        android:textColor="#4B716D"
+        android:textColor="#9C6B5C"
         android:textSize="35dp"
         android:textStyle="bold" />
 

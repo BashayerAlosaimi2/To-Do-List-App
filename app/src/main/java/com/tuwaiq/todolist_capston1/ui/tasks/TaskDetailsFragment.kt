@@ -1,5 +1,6 @@
 package com.tuwaiq.todolist_capston1.ui.tasks
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,10 +54,23 @@ class TaskDetailsFragment : Fragment() {
 
         deleteBtn.setOnClickListener {
 
-            viewModel.delete(args.curruntTaskKey)
-            Toast.makeText(context, "Task deleted successfully", Toast.LENGTH_SHORT)
-                .show()
-            findNavController().popBackStack()
+            val alert = AlertDialog.Builder(view.context)
+            alert.setTitle("Delete task")
+            // alert.setIcon(R.drawable.alert)
+            alert.setMessage("Are you sure you want to delete the task?")
+            alert.setPositiveButton(R.string.yes) { dialog, which ->
+                viewModel.delete(args.curruntTaskKey)
+                Toast.makeText(context, "Task deleted successfully", Toast.LENGTH_SHORT)
+                    .show()
+                findNavController().popBackStack()
+            }
+            alert.setNegativeButton(R.string.no) { dialog, which ->
+                dialog.cancel()
+            }
+            alert.setNeutralButton(R.string.cancel) { dialog, which ->
+                dialog.cancel()
+            }
+            alert.show()
 
         }
     }

@@ -42,7 +42,7 @@ class TaskRecycleViewAdapter(private var taskList: List<Task>, val viewModel: ta
         val formatted = current.format(formatter)
 
         val cardV = holder.itemView.findViewById<CardView>(R.id.itemID)
-        val newcolor = holder.itemView.resources.getColor(R.color.green4)
+        val newcolor = holder.itemView.resources.getColor(R.color.testgreen)
         val oldcolor = holder.itemView.resources.getColor(R.color.white)
 
         holder.checkB.setOnCheckedChangeListener { _, ischeeck ->
@@ -99,7 +99,7 @@ class TaskRecycleViewAdapter(private var taskList: List<Task>, val viewModel: ta
 
             }
             override fun onClick(view: View?) {
-                Toast.makeText(itemView.context, "${tv_TaskName.text} cliced", Toast.LENGTH_SHORT)
+                Toast.makeText(itemView.context, "${tv_TaskName.text} clicked", Toast.LENGTH_SHORT)
                     .show()
             }
         }

@@ -3,7 +3,7 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/note1">
+android:background="@drawable/picgood">
 
 
 <LinearLayout
@@ -19,10 +19,10 @@ android:background="@drawable/note1">
         android:gravity="center"
         android:padding="20dp"
         android:layout_marginTop="30dp"
-        android:text="Your Task "
+        android:text="Update your Task "
         android:textSize="35dp"
         android:fontFamily="@font/averia_sans_libre_light"
-        android:textColor="#4B716D"
+        android:textColor="#9C6B5C"
         android:textStyle="bold"
         />
 
@@ -43,7 +43,7 @@ android:background="@drawable/note1">
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Task description"
-        android:textColor="#534750"
+        android:textColor="#385E7E"
         android:fontFamily="@font/averia_sans_libre_light"
         android:lines="4"
         android:textSize="20dp"
@@ -52,6 +52,7 @@ android:background="@drawable/note1">
         android:id="@+id/et_more_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#385E7E"
         android:fontFamily="@font/averia_sans_libre_light"
         android:layout_marginTop="10dp"
         android:hint="Completion note"
@@ -103,7 +104,7 @@ android:background="@drawable/note1">
             android:id="@+id/image_due_date_up"
             android:layout_width="40dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="120dp"
             android:src="@drawable/ic_baseline_calendar_today_24" />
 
     </LinearLayout>

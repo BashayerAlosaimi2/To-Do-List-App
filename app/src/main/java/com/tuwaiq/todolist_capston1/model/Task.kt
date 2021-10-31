@@ -17,9 +17,11 @@ data class Task(
     var important: Boolean= false,
     var due_date: String="",
     var taskCompleted: Boolean = false,
-    var created_date: String// = System.currentTimeMillis()
+    var created_date: String  // = System.currentTimeMillis()
 
-): Parcelable/*{
+): Parcelable
+
+/*{
     val created_date_formatted: String
         get()= DateFormat.getDateInstance().format(created_date)
 

@@ -111,7 +111,7 @@ class AddFragment : Fragment() {
                     due_date = dueDate.text.toString(),
                     created_date = formatted
                 )
-                Toast.makeText(context, "Task is added successfully", android.widget.Toast.LENGTH_SHORT)
+                Toast.makeText(context, "Task is added successfully", Toast.LENGTH_SHORT)
                     .show()
                 mainVM.inserTask(task)
                 findNavController().popBackStack()
