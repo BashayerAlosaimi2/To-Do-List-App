@@ -1,0 +1,32 @@
+# To do list
+---
+
+<!--- Replace <BashayerAlosaimi2> with your Github Username and <ToDoList_Capstone1> with the name of your repository. -->
+<!--- You can find both of these in the url bar when you open your repository in github. -->
+
+
+## :scroll: Description
+---
+To do list project that give the user the ability to create clear lists to easily manage his ideas and work, with the ability to update and delete his task from anywhere. Also adding due date and description when its needed. 
+
+I depends on recyclerview instead of ListView in main page to increase app performance.
+Combine several Fragments into a single Activity and swapping between them, Interactions between them using navigation component.
+
+Keep the data Persistence by using Room 
+•	DAO interface, which has SQL formulas and data-handling functions.
+•	Database Class to create the database.
+•	ViewModel class has the LiveData component. It is the link between the database and the application UI, and it has data handling functions such as saving, updating and deleting.
+Extra Features: 
+Color changing for checked task  
+Show Priority icon when making the task important 
+
+## :bulb: Motivation and Context
+---
+The individual project was a challenge for me to seek  the perfection in a short time and end up with an application that works and care about user experience and has an easy to use user interface.
+
+## :camera_flash: Screenshots
+---
+### screenshot_1
+
+### screenshot_2
+
