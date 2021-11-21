@@ -19,7 +19,8 @@
         app:cardElevation="2dp"
         app:cardMaxElevation="3dp"
         app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        tools:ignore="MissingClass">
 
         <RelativeLayout
             android:layout_width="wrap_content"

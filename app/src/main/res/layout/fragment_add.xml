@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/picgood">
@@ -88,7 +89,8 @@
                 android:hint="YYYY-MM-DD"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/averia_sans_libre_light"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                tools:ignore="MissingClass" />
 
             <ImageView
                 android:id="@+id/image_due_date"

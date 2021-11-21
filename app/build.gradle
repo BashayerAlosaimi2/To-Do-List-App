@@ -53,6 +53,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-tasks:17.2.1'
     implementation 'com.google.android.play:core-ktx:1.8.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"

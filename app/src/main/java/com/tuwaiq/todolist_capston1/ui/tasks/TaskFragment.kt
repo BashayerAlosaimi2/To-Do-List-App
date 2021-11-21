@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.tuwaiq.todolist_capston1.R
 import com.tuwaiq.todolist_capston1.ui.tasks.modelView.taskViewModel
 
-class TaskFragment : Fragment(R.layout.fragment_task) {
+class TaskFragment : Fragment() {
 
     private lateinit var addBtn: FloatingActionButton
 
